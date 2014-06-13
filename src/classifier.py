@@ -29,7 +29,7 @@ class naive_bayes():
         """
         predictions = self.classifier.predict(test_set.data)
 
-        return confusion_matrix(test_set.target, predictions)
+        return confusion_matrix(test_set.target, predictions), predictions
 
 class naive_bayes_custom():
     def __init__(self, training_set):
@@ -80,7 +80,7 @@ class naive_bayes_custom():
         predictions = (spam_prob > not_spam_prob)*1
         
 
-        return confusion_matrix(test_set.target, predictions)
+        return confusion_matrix(test_set.target, predictions), predictions
 
 class svm():
     '''
@@ -94,7 +94,7 @@ class svm():
 
     def classify(self, test_set):
         predictions = self.classifier.predict(test_set.data)
-        return confusion_matrix(test_set.target, predictions)
+        return confusion_matrix(test_set.target, predictions), predictions
 
 class knn():
 
@@ -104,4 +104,4 @@ class knn():
 
     def classify(self, test_set):
         predictions = self.classifier.predict(test_set.data)
-        return confusion_matrix(predictions, test_set.target)
+        return confusion_matrix(predictions, test_set.target), predictions
